@@ -1,12 +1,19 @@
 module Enumerable
   def p_it_out
-    self.each do |x|
-      p x
+    if self.is_a? Array
+      self.each do |x|
+        p x
+      end
+    elsif self.is_a? Hash
+      self.each do |k, v|
+        p "#{k}: #{v}"
+      end
     end
   end
 
   def hash_it_out
     #changes an array to a hash
+    raise ArgumentError.new("Array must have an even number of values") unless self.length % 2 == 0
     new_hash = {}
     self.flatten
     self.each_with_index do |x, i|
@@ -54,15 +61,13 @@ class String
     return new_hash
   end
 end
-
-### driver code ###
+# ### driver code ###
 test = [3,4,5,6]
-test_string = "name: Stephanie, age: 25"
-test_string_2 = "3 4 5 6 8"
-test.p_it_out
+test_string = "name: Stephanie"
+# test_string_2 = "3 4 5 6 8"
+# test.p_it_out
 p test.hash_it_out
-p test_string.arr_it
-p test_string.arr_it.hash_it_out
+# p test_string.arr_it
+# p test_string.arr_it.hash_it_out
 p test_string.hash_it_out
-# p test_string_2.hash_it_out
-
+# # p test_string_2.hash_it_out
