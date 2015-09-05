@@ -20,6 +20,6 @@ class Enum_It_Out_Test < Minitest::Test
   end
 
   def test_hash_it_out_with_string
-    assert {:name}, "name: JimBob".hash_it_out
+    assert {:name => "JimBob"}, "name: JimBob".hash_it_out
   end
 end
