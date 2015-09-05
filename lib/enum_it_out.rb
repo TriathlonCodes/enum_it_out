@@ -1,12 +1,13 @@
 module Enumerable
   def p_it_out
-    if self.is_a? Array
+    if self.is_a? Hash
+      self.each do |k, v|
+        print "#{k}: "
+        p "#{v}"
+      end
+    else
       self.each do |x|
         p x
-      end
-    elsif self.is_a? Hash
-      self.each do |k, v|
-        p "#{k}: #{v}"
       end
     end
   end
@@ -61,13 +62,4 @@ class String
     return new_hash
   end
 end
-# ### driver code ###
-test = [3,4,5,6]
-test_string = "name: Stephanie"
-# test_string_2 = "3 4 5 6 8"
-# test.p_it_out
-p test.hash_it_out
-# p test_string.arr_it
-# p test_string.arr_it.hash_it_out
-p test_string.hash_it_out
-# # p test_string_2.hash_it_out
+

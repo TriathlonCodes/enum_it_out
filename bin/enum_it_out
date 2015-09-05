@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'enum_it_out'
+
+"time: now, place: here".hash_it_out
